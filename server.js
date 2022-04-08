@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 require('dotenv').config()
 console.log("PK: "+process.env.PK);
-console.log("build: "+process.env.BUILD_CONFIGURATION);
 
 
 // const app = express();

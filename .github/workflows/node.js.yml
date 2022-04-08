@@ -25,9 +25,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        credentials: ${{ secrets.PK }}
+    env: # Or as an environment variable
+      PK: ${{ secrets.PK }}
+
     - run: npm install
     - run: pm2 restart api
-    env:
-      BUILD_CONFIGURATION: Releasase
-      PK: ${{ secrets.PK }}
 
