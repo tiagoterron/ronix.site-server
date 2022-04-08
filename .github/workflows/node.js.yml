@@ -35,6 +35,7 @@ jobs:
 
     env: 
           PK2: testtt
+          PK3: testtt
 
 
 
