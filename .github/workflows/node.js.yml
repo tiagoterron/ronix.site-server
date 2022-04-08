@@ -9,13 +9,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  PORT: 8000
-  PRIVATE_KEY: 0
-  MONGOOSE_DB_USER: tes
-  MONGOOSE_DB_PASS: test2
-  MONGOOSE_DB_URL: test3
-
 jobs:
   build:
 
