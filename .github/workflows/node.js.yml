@@ -11,7 +11,7 @@ on:
 
 env:
       ## Environment variable for step 1
-      MONGOOSE_DB_URL: ${{secrets.PK}}  
+      MONGOOSE_DB_URL: "teststst" 
 
 jobs:
   build:
