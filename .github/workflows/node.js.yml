@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ master ]
 
+secrets:
+      ## Environment variable for step 1
+      PK: ${{secrets.PK}}  
+
 jobs:
   build:
 
