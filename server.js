@@ -4,7 +4,7 @@ const cors = require("cors");
 require('dotenv').config()
 console.log("PK: "+process.env.PK);
 console.log("PK2: "+process.env.PK2);
-console.log("PKs: "+process.env);
+console.log(process.env);
 
 
 // const app = express();
