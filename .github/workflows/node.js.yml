@@ -17,10 +17,6 @@ jobs:
   build:
 
     runs-on: self-hosted
-    steps:
-      - name: First script from build
-        run: echo We use the global workflow variable $BUILD_CONFIGURATION
-
     strategy:
       matrix:
         node-version: [16.x]
