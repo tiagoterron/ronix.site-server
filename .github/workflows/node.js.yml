@@ -12,9 +12,9 @@ on:
 env:
   PORT: 8000
   PRIVATE_KEY: 9e051cf477534e884b8f2fd5eeebe5732dd7aadfa30810909bcca1e14bea202c
-  MONGOOSE_DB_USER: RonixFinance
-  MONGOOSE_DB_PASS: Iomkb83Ha2dRSxyD
-  MONGOOSE_DB_URL: mongodb+srv://RonixFinance:Iomkb83Ha2dRSxyD@ronix.bjvdm.mongodb.net/Ronix?retryWrites=true&w=majority
+  MONGOOSE_DB_USER: tes1
+  MONGOOSE_DB_PASS: test2
+  MONGOOSE_DB_URL: test3
 
 jobs:
   build:
