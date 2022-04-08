@@ -10,13 +10,16 @@ on:
     branches: [ master ]
 
 env:
-      ## Environment variable for step 1
-      MONGOOSE_DB_URL: "teststst" 
+  BUILD_CONFIGURATION: Release
+  PK: ${{ secrets.PK }}
 
 jobs:
   build:
 
     runs-on: self-hosted
+    steps:
+      - name: First script from build
+        run: echo We use the global workflow variable $BUILD_CONFIGURATION
 
     strategy:
       matrix:
