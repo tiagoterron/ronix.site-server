@@ -25,6 +25,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm install
+    - run: pm2 restart api
 
     - name: Step 1 - Echo out a GitHub Actions Secret to the logs
         run: |
@@ -46,7 +48,4 @@ jobs:
           PK: ${{ secrets.PK }}
         if:  env.PK != 'TrustNobody'
         run: echo "I was wrong thinking the GitHub secret was 'TrustNobody'!"
-
-    - run: npm install
-    - run: pm2 restart api
 
