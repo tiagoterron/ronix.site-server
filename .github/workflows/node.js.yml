@@ -9,9 +9,9 @@ on:
   pull_request:
     branches: [ master ]
 
-secrets:
+env:
       ## Environment variable for step 1
-      PK: ${{secrets.PK}}  
+      MONGOOSE_DB_URL: ${{secrets.PK}}  
 
 jobs:
   build:

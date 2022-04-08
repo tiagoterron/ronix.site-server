@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 require('dotenv').config()
 const app = express();
+console.log("PK:" + secrets.API_KEY)
 const routers = require('./router/routes.js');
 require('./config/db.config.js');
 abi = require('./RONIX.json');
