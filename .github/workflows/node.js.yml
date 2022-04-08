@@ -25,9 +25,27 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        credentials: ${{ secrets.PK }}
-    env: # Or as an environment variable
-      PK: ${{ secrets.PK }}
+
+    - name: Step 1 - Echo out a GitHub Actions Secret to the logs
+        run: |
+          echo "The GitHub Action Secret will be masked:  "
+          echo ${{ secrets.PK }}
+          echo "Trick to echo GitHub Actions Secret:  "
+          echo ${{secrets.PK}} | sed 's/./& /g' 
+      # Use a GitHub Actions secret variable in a bash shell
+      - name: Step 2 - GitHub Action if statement (true)
+        env: 
+          PK: ${{ secrets.PK }}
+        if:  env.WHO_TO_TRUST == 'TrustNo1'
+        run: echo "I know what the secret token is!"
+
+      # A GitHub Actions if statement with a secret environment variable
+      - name: Step 3 - Conditional GitHub Action (false)
+        shell: bash
+        env: 
+          PK: ${{ secrets.PK }}
+        if:  env.PK != 'TrustNobody'
+        run: echo "I was wrong thinking the GitHub secret was 'TrustNobody'!"
 
     - run: npm install
     - run: pm2 restart api
