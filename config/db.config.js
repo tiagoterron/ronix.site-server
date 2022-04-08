@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-console.log("PK: "+process.env.MONGOOSE_DB_URL);
 const db = mongoose.connect("test", {
     useNewUrlParser: true,
     useUnifiedTopology: true
