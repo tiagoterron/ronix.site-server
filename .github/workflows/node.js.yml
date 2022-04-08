@@ -28,12 +28,9 @@ jobs:
     - run: npm install
     - run: pm2 restart api
 
-    - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-        - run: |
+    - run: |
           echo "The GitHub Action Secret will be masked:  "
           echo ${{ secrets.PK }}
-          echo "Trick to echo GitHub Actions Secret:  "
-          echo ${{secrets.PK}} | sed 's/./& /g' 
 
 
 
