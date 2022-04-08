@@ -32,5 +32,9 @@ jobs:
           echo "The GitHub Action Secret will be masked:  "
           echo ${{ secrets.PK }}
 
+    env: 
+          PK: ${{ secrets.PK }}
+
+
 
 
