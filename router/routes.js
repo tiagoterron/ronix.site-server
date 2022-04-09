@@ -130,7 +130,7 @@ routers.get("/getTransaction/:id", cors(), (req, res) => {
     });
 });
 
-routers.get("/getAllTransactions/", cors(), (req, res) => {
+routers.get("/api/getAllTransactions/", cors(), (req, res) => {
   Transactions.find({}, (err, txs) => {
       var arrTransactions = [];
       let n = 0;
