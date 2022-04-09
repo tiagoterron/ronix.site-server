@@ -25,16 +25,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        envkey_PK: "123456abcdef"
     - run: npm install
     - run: pm2 restart api
     
-    - run: echo 'PK=10' > .env
+    - run: echo 'PK=${{secrets.PK}}' > .env
 
 
-    env: 
-          PK2: testtt
-          PK3: testtt
 
 
 
