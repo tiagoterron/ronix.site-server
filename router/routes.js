@@ -6,7 +6,7 @@ const { Transactions, FreeRon } = require('../config/db.config.js');
 const { Tokens, Networks } = require('./contracts.js');
 var https = require('https');
 
-routers.post("/updateTxFinalPrice/:hash/", cors(), async (req, res) => {
+routers.post("/api/updateTxFinalPrice/:hash/", cors(), async (req, res) => {
   hash = req.params.hash;
   amount = req.query.amount;
   const tx = await Transactions.find({hash: hash, status: 'completed'});
@@ -15,7 +15,7 @@ routers.post("/updateTxFinalPrice/:hash/", cors(), async (req, res) => {
   }
 });
 
-routers.post("/transferTokens/:hash/", cors(), async (req, res) => {
+routers.post("/api/transferTokens/:hash/", cors(), async (req, res) => {
   hash = req.params.hash;
   
   const tx = await Transactions.find({hash: hash, status: 'pending'});
@@ -92,13 +92,13 @@ routers.post("/transferTokens/:hash/", cors(), async (req, res) => {
 });
 
 
-routers.post("/revertTransaction/:id/:status", cors(), (req, res) => {
+routers.post("/api/revertTransaction/:id/:status", cors(), (req, res) => {
   Transactions.findOneAndUpdate({ _id: req.params.id}, {status:req.params.status}).then((r) => {
   res.send(r.status); 
 });
 });
 
-routers.post("/updateStatusTransaction/:id/:status/:hash", cors(), (req, res) => {
+routers.post("/api/updateStatusTransaction/:id/:status/:hash", cors(), (req, res) => {
   Transactions.find({ _id: req.params.id}, (err1, tx1) => {
     Transactions.findOneAndUpdate({ _id: req.params.id}, {status:req.params.status, hashTo:req.params.hash, hash: tx1[0].hash, amountTo: req.query.value}).then((r) => {
     res.send(r.status);
@@ -106,31 +106,31 @@ routers.post("/updateStatusTransaction/:id/:status/:hash", cors(), (req, res) =>
 });
 });
 
-routers.get("/getTransactionByHash/:hash", cors(), (req, res) => {
+routers.get("/api/getTransactionByHash/:hash", cors(), (req, res) => {
   Transactions.find({hash: req.params.hash}, (err, tx) => {
       res.send(tx);  
     });
 });
 
-routers.get("/getTransactionByHashFrom/:hash", cors(), (req, res) => {
+routers.get("/api/getTransactionByHashFrom/:hash", cors(), (req, res) => {
   Transactions.find({hashFrom: req.params.hash}, (err, tx) => {
       res.send(tx);  
     });
 });
 
-routers.get("/getRonRequest/:id", cors(), (req, res) => {
+routers.get("/api/getRonRequest/:id", cors(), (req, res) => {
   FreeRon.find({_id: req.params.id}, (err, tx) => {
       res.send(tx);  
     });
 });
 
-routers.get("/getTransaction/:id", cors(), (req, res) => {
+routers.get("/api/getTransaction/:id", cors(), (req, res) => {
   Transactions.find({_id: req.params.id}, (err, tx) => {
       res.send(tx);  
     });
 });
 
-routers.get("/getAllTransactions/", cors(), (req, res) => {
+routers.get("/api/getAllTransactions/", cors(), (req, res) => {
   Transactions.find({}, (err, txs) => {
       var arrTransactions = [];
       let n = 0;
@@ -143,7 +143,7 @@ routers.get("/getAllTransactions/", cors(), (req, res) => {
 
 });
 
-routers.post("/updateStatusRonRequest/:id/:status/:hash", cors(), (req, res) => {
+routers.post("/api/updateStatusRonRequest/:id/:status/:hash", cors(), (req, res) => {
   FreeRon.find({ _id: req.params.id}, (err1, tx1) => {
     FreeRon.findOneAndUpdate({ _id: req.params.id}, {status:req.params.status, hash:req.params.hash}).then((r) => {
     res.send(r.status);
@@ -151,7 +151,7 @@ routers.post("/updateStatusRonRequest/:id/:status/:hash", cors(), (req, res) => 
 });
 });
 
-routers.get("/getAllRonRequestsPending/", cors(), (req, res) => {
+routers.get("/api/getAllRonRequestsPending/", cors(), (req, res) => {
   FreeRon.find({status: 'pending'}, (err, txs) => {
       var arrFreeRons = [];
       let n = 0;
@@ -164,7 +164,7 @@ routers.get("/getAllRonRequestsPending/", cors(), (req, res) => {
 
 });
 
-routers.get("/getAllRonRequestsCompleted/", cors(), (req, res) => {
+routers.get("/api/getAllRonRequestsCompleted/", cors(), (req, res) => {
   FreeRon.find({status: 'pending'}, (err, txs) => {
       var arrFreeRons = [];
       let n = 0;
@@ -177,7 +177,7 @@ routers.get("/getAllRonRequestsCompleted/", cors(), (req, res) => {
 
 });
 
-routers.get("/getAllRonRequests/", cors(), (req, res) => {
+routers.get("/api/getAllRonRequests/", cors(), (req, res) => {
   FreeRon.find({}, (err, txs) => {
       var arrFreeRons = [];
       let n = 0;
@@ -190,7 +190,7 @@ routers.get("/getAllRonRequests/", cors(), (req, res) => {
 
 });
 
-routers.post("/createTransaction/", cors(), async (req, res) => {
+routers.post("/api/createTransaction/", cors(), async (req, res) => {
   Transactions.create({ 
       address: req.query.address, 
       networkFrom: req.query.networkFrom,
@@ -215,7 +215,7 @@ routers.post("/createTransaction/", cors(), async (req, res) => {
 
 });
 
-routers.get("/getTransactions/", cors(), (req, res) => {
+routers.get("/api/getTransactions/", cors(), (req, res) => {
   const query = Transactions.find({}, null, {limit: 10, sort: {'createdAt': -1}})
   query.exec((err, tx) => {
       res.send(tx);  
@@ -223,7 +223,7 @@ routers.get("/getTransactions/", cors(), (req, res) => {
 
 });
 
-routers.get("/checkUserID/", cors(), (req, res) => {
+routers.get("/api/checkUserID/", cors(), (req, res) => {
   const options = {
     path: '/json/',
     host: 'ipapi.co',
@@ -246,7 +246,7 @@ routers.get("/checkUserID/", cors(), (req, res) => {
   });
 })
 
-routers.post("/createFreeRonRequest/", cors(), (req, res) => {
+routers.post("/api/createFreeRonRequest/", cors(), (req, res) => {
   let addr = req.query.addr;
   const options = {
     path: '/json/',

@@ -25,25 +25,25 @@ app.use(cors({
 
 var https = require('https');
 
-app.post('/createFreeRonRequest/', routers)
-app.post('/createTransaction/', routers)
-app.post('/updateStatusRonRequest/:id/:status/:hash', routers)
-app.post('/updateStatusTransaction/:id/:status/:hash', routers)
-app.post('/revertTransaction/:id/:status', routers)
-app.post('/transferTokens/:hash/', routers)
-app.post('/updateTxFinalPrice/:hash/', routers)
-app.get('/getTransactions/', routers)
-app.get('/checkUserID/', routers)
-app.get('/getAllRonRequests/', routers)
-app.get('/getAllRonRequestsPending/', routers)
-app.get('/getAllRonRequestsCompleted/', routers)
-app.get('/getAllTransactions/', routers)
-app.get('/getTransaction/:id', routers)
-app.get('/getRonRequest/:id', routers)
-app.get('/getTransactionByHash/:hash', routers)
-app.get('/getTransactionByHashFrom/:hash', routers)
+app.post('/api/createFreeRonRequest/', routers)
+app.post('/api/createTransaction/', routers)
+app.post('/api/updateStatusRonRequest/:id/:status/:hash', routers)
+app.post('/api/updateStatusTransaction/:id/:status/:hash', routers)
+app.post('/api/revertTransaction/:id/:status', routers)
+app.post('/api/transferTokens/:hash/', routers)
+app.post('/api/updateTxFinalPrice/:hash/', routers)
+app.get('/api/getTransactions/', routers)
+app.get('/api/checkUserID/', routers)
+app.get('/api/getAllRonRequests/', routers)
+app.get('/api/getAllRonRequestsPending/', routers)
+app.get('/api/getAllRonRequestsCompleted/', routers)
+app.get('/api/getAllTransactions/', routers)
+app.get('/api/getTransaction/:id', routers)
+app.get('/api/getRonRequest/:id', routers)
+app.get('/api/getTransactionByHash/:hash', routers)
+app.get('/api/getTransactionByHashFrom/:hash', routers)
 
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Runng port ${PORT}.`);
+  console.log(`Running on port ${PORT}.`);
 });
