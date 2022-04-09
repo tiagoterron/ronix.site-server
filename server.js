@@ -2,9 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require('dotenv').config()
-console.log("PK: "+process.env.PK);
-console.log("PK2: "+process.env.PK2);
-console.log(process.env);
+console.log("PK2: "+process.env.MONGOOSE_DB_URL);
 
 
 // const app = express();
