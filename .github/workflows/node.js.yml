@@ -28,7 +28,7 @@ jobs:
     - run: npm install
     - run: pm2 restart api
     
-    - run: echo 'PK=${{secrets.PK}}' > .env
+    - run: echo 'MONGOOSE_DB_URL=${{secrets.MONGOOSE_DB_URL}}' > .env
 
 
 
