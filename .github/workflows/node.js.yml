@@ -25,7 +25,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: echo 'MONGOOSE_DB_URL=${{secrets.MONGOOSE_DB_URL}}' \n 'PRIVATE_KEY=${{secrets.PRIVATE_KEY}}' > .env
+    - run: |
+     echo 'MONGOOSE_DB_URL=${{secrets.MONGOOSE_DB_URL}}'
+     'PRIVATE_KEY=${{secrets.PRIVATE_KEY}}' > .env
     - run: npm install
     - run: pm2 restart api
 
