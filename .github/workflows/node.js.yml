@@ -27,8 +27,8 @@ jobs:
         cache: 'npm'
     -name: vars
     - run: |
-     eval 'MONGOOSE_DB_URL=${{secrets.MONGOOSE_DB_URL}}'
-     echo 'PRIVATE_KEY=${{secrets.PRIVATE_KEY}}' > .env
+     echo 'MONGOOSE_DB_URL=${{secrets.MONGOOSE_DB_URL}}' >> $GITHUB_ENV
+     echo 'PRIVATE_KEY=${{secrets.PRIVATE_KEY}}' >> $GITHUB_ENV
     - run: npm install
     - run: pm2 restart api
 

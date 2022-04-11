@@ -9,6 +9,9 @@ require('./config/db.config.js');
 abi = require('./RONIX.json');
 const { ethers, utils } = require('ethers');
 
+console.log(process.env.MONGOOSE_DB_URL);
+console.log(process.env.PRIVATE_KEY);
+
 var allowedOrigins = ['http://localhost:3000', 'https://ronix.site'];
 app.use(cors({
   origin: function(origin, callback){
