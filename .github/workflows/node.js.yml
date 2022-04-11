@@ -25,10 +25,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    -name: vars
     - run: |
-     echo 'MONGOOSE_DB_URL=${{secrets.MONGOOSE_DB_URL}}' >> $GITHUB_ENV
-     echo 'PRIVATE_KEY=${{secrets.PRIVATE_KEY}}' >> $GITHUB_ENV
+        echo 'MONGOOSE_DB_URL=${{secrets.MONGOOSE_DB_URL}}' >> $GITHUB_ENV
+        echo 'PRIVATE_KEY=${{secrets.PRIVATE_KEY}}' >> $GITHUB_ENV
     - run: npm install
     - run: pm2 restart api
 
