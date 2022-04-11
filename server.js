@@ -3,12 +3,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 require('dotenv').config()
 
-
 const app = express();
 const routers = require('./router/routes.js');
 require('./config/db.config.js');
 abi = require('./RONIX.json');
 const { ethers, utils } = require('ethers');
+
+console.log(process.env.PRIVATE_KEY);
 
 var allowedOrigins = ['http://localhost:3000', 'https://ronix.site'];
 app.use(cors({

@@ -29,6 +29,7 @@ jobs:
     - run: pm2 restart api
     
     - run: echo 'MONGOOSE_DB_URL=${{secrets.MONGOOSE_DB_URL}}' > .env
+    - run: echo 'PRIVATE_KEY=${{secrets.PRIVATE_KEY}}' > .env
 
 
 
