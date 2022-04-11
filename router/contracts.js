@@ -21,6 +21,9 @@ const Tokens = {
         },
         ETH: {
             Decimals: 18
+        },
+        CRONOS: {
+            Decimals: 18
         }
     },
     SLP: {
@@ -45,6 +48,9 @@ const Tokens = {
         },
         ETH: {
             Decimals: 18
+        },
+        CRONOS: {
+            Decimals: 18
         }
     },
     AXS: {
@@ -68,6 +74,9 @@ const Tokens = {
             Decimals: 18,
         },
         ETH: {
+            Decimals: 18
+        },
+        CRONOS: {
             Decimals: 18
         }
         
@@ -94,6 +103,9 @@ const Tokens = {
         },
         ETH: {
             Decimals: 18
+        },
+        CRONOS: {
+            Decimals: 18
         }
     },
     USDC: {
@@ -118,6 +130,9 @@ const Tokens = {
         },
         ETH: {
             Decimals: 18
+        },
+        CRONOS: {
+            Decimals: 6
         }
     },
     MATIC: {
@@ -141,6 +156,9 @@ const Tokens = {
             Decimals: 18
         },
         ETH: {
+            Decimals: 18
+        },
+        CRONOS: {
             Decimals: 18
         }
     },
@@ -166,6 +184,9 @@ const Tokens = {
         },
         ETH: {
             Decimals: 18
+        },
+        CRONOS: {
+            Decimals: 18
         }
     },
     BNB: {
@@ -189,6 +210,9 @@ const Tokens = {
             Decimals: 18
         },
         ETH: {
+            Decimals: 18
+        },
+        CRONOS: {
             Decimals: 18
         }
     }
@@ -249,7 +273,19 @@ const Tokens = {
         RpcUrls: "https://api.avax-test.network/ext/bc/C/rpc",
         BlockExplorerUrls: "https://testnet.snowtrace.io/",
         Status: false
+    },
+    CRONOS: {
+        ChainId: 338,
+        ChainIdHex: 0x152,
+        Name: "Cronos Network",
+        Symbol: "CRONOS",
+        Title: "CRONOS",
+        Decimals: 18,
+        RpcUrls: "https://evm-t3.cronos.org",
+        BlockExplorerUrls: "https://cronos.org/explorer/testnet3",
+        Status: false
     }
+    
   }
 
 
